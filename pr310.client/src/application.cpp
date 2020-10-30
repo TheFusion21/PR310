@@ -11,7 +11,7 @@ void Application::Initialize(u32 ArgCount, const ansistring* ArgList)
 {
 	AE_FUNCTION_PROFILING();
 
-	this->GameEngine.Initialize(AE_APPLICATION_NAME, ArgCount, ArgList);
+	this->GameEngine.Initialize(APPLICATION_NAME, ArgCount, ArgList);
 }
 void Application::Execute()
 {

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.11)
 
 project(Engine)
-set(PROJECT_NAME "Arcanum Engine")
+set(PROJECT_NAME "PR310")
 
 # includes after project declaration
 # otherwise compiler id is unknown
@@ -16,8 +16,8 @@ option(GENERATE_DOCS "Do you want to generate the documentation?" FALSE)
 add_subdirectory(shared)
 add_subdirectory(driver.d3d11)
 add_subdirectory(engine.core)
-add_subdirectory(evenlight.game)
-add_subdirectory(evenlight.client)
+add_subdirectory(pr310.game)
+add_subdirectory(pr310.client)
 
 if (GENERATE_DOCS)
 	# generate directories

@@ -1,5 +1,5 @@
 # define project
-project(evenlight.client C CXX)
+project(pr310.client C CXX)
 set(TARGET_NAME Client)
 
 configure_file(
@@ -32,7 +32,7 @@ target_link_libraries(${TARGET_NAME}
     shared
     engine.driver.d3d11
     engine.core
-    evenlight.game
+    pr310.game
     D3D11
     DXGI
     D3DCompiler)
@@ -42,7 +42,7 @@ target_include_directories(${TARGET_NAME} PRIVATE
 	"${CMAKE_SOURCE_DIR}/shared/inc"
 	"${CMAKE_SOURCE_DIR}/driver.d3d11/inc"
 	"${CMAKE_SOURCE_DIR}/engine.core/inc"
-	"${CMAKE_SOURCE_DIR}/evenlight.game/inc"
+	"${CMAKE_SOURCE_DIR}/pr310.game/inc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/inc"
 )
 

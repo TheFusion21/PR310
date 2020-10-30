@@ -181,23 +181,23 @@ struct FloatColor
     FloatColor(void) = default;
     FloatColor(u32 Color);
 
-    static AEFloatColor White(void) { return AEFloatColor(HCC_White); }
-    static AEFloatColor Black(void) { return AEFloatColor(HCC_Black); }
+    static FloatColor White(void) { return FloatColor(HCC_White); }
+    static FloatColor Black(void) { return FloatColor(HCC_Black); }
 
-    static AEFloatColor Red(void) { return AEFloatColor(HCC_Red); }
-    static AEFloatColor Lime(void) { return AEFloatColor(HCC_Lime); }
-    static AEFloatColor Blue(void) { return AEFloatColor(HCC_Blue); }
-    static AEFloatColor Yellow(void) { return AEFloatColor(HCC_Yellow); }
-    static AEFloatColor Cyan(void) { return AEFloatColor(HCC_Cyan); }
-    static AEFloatColor Magenta(void) { return AEFloatColor(HCC_Magenta); }
-    static AEFloatColor Silver(void) { return AEFloatColor(HCC_Silver); }
-    static AEFloatColor Gray(void) { return AEFloatColor(HCC_Gray); }
-    static AEFloatColor Maroon(void) { return AEFloatColor(HCC_Maroon); }
-    static AEFloatColor Olive(void) { return AEFloatColor(HCC_Olive); }
-    static AEFloatColor Green(void) { return AEFloatColor(HCC_Green); }
-    static AEFloatColor Purple(void) { return AEFloatColor(HCC_Purple); }
-    static AEFloatColor Teal(void) { return AEFloatColor(HCC_Teal); }
-    static AEFloatColor Navy(void) { return AEFloatColor(HCC_Navy); }
+    static FloatColor Red(void) { return FloatColor(HCC_Red); }
+    static FloatColor Lime(void) { return FloatColor(HCC_Lime); }
+    static FloatColor Blue(void) { return FloatColor(HCC_Blue); }
+    static FloatColor Yellow(void) { return FloatColor(HCC_Yellow); }
+    static FloatColor Cyan(void) { return FloatColor(HCC_Cyan); }
+    static FloatColor Magenta(void) { return FloatColor(HCC_Magenta); }
+    static FloatColor Silver(void) { return FloatColor(HCC_Silver); }
+    static FloatColor Gray(void) { return FloatColor(HCC_Gray); }
+    static FloatColor Maroon(void) { return FloatColor(HCC_Maroon); }
+    static FloatColor Olive(void) { return FloatColor(HCC_Olive); }
+    static FloatColor Green(void) { return FloatColor(HCC_Green); }
+    static FloatColor Purple(void) { return FloatColor(HCC_Purple); }
+    static FloatColor Teal(void) { return FloatColor(HCC_Teal); }
+    static FloatColor Navy(void) { return FloatColor(HCC_Navy); }
 };
 
 /*!
@@ -216,7 +216,7 @@ public:
     Color32(void) = default;
     Color32(byte r, byte g, byte b, byte a);
     Color32(real r, real g, real b, real a = static_cast<real>(1.0));
-    Color32(const AEFloatColor&);
+    Color32(const FloatColor&);
     Color32(u32 Color);
 
     static Color32 White(void) { return Color32(HCC_White); }

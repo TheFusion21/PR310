@@ -5,9 +5,9 @@
 #include "math/color.h"
 
 //********************************************************************************************
-AEFloatColor::AEFloatColor(const u32 Color)
+FloatColor::FloatColor(const u32 Color)
 {
-    if (!AEIsBigEndian)
+    if (!IsBigEndian)
     {
         this->r = static_cast<real>((Color & 0xFF000000) >> 24) / static_cast<real>(255.0);
         this->g = static_cast<real>((Color & 0x00FF0000) >> 16) / static_cast<real>(255.0);
@@ -36,7 +36,7 @@ Color32::Color32(real r, real g, real b, real a) :
     a(static_cast<byte>(a* static_cast<real>(255.0)))
 { }
 //********************************************************************************************
-Color32::Color32(const AEFloatColor& Color)
+Color32::Color32(const FloatColor& Color)
 {
     this->r = static_cast<byte>(Color.r * static_cast<real>(255.0));
     this->g = static_cast<byte>(Color.g * static_cast<real>(255.0));
@@ -46,7 +46,7 @@ Color32::Color32(const AEFloatColor& Color)
 //********************************************************************************************
 Color32::Color32(const u32 Color)
 {
-    if (!AEIsBigEndian)
+    if (!IsBigEndian)
     {
         this->r = static_cast<byte>((Color & 0xFF000000) >> 24);
         this->g = static_cast<byte>((Color & 0x00FF0000) >> 16);

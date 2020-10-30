@@ -1,6 +1,6 @@
 # define project
-project(evenlight.game C CXX)
-set(TARGET_NAME evenlight.game)
+project(pr310.game C CXX)
+set(TARGET_NAME pr310.game)
 
 # configure executable, properties and linkage
 add_library(${TARGET_NAME} STATIC)

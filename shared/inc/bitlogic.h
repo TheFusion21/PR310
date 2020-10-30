@@ -4,12 +4,12 @@
 // INTERNAL INCLUDES
 #include "basetypes.h"
 
-#define AEIsBigEndian (*(u16*)"\0\xff" < 0x100)
+#define IsBigEndian (*(u16*)"\0\xff" < 0x100)
 
-#define	AEHasFlag(val, flag) ((flag) == ((val)&(flag)))
-#define	AEAddFlag(val, flag) ((val) |= (flag))
-#define	AERemFlag(val, flag) ((val) &= (~(flag)))
-#define	AESetFlag(val, flag, enable) if ( enable ){(val)|=(flag);} else {(val)&=~(flag);}
+#define	HasFlag(val, flag) ((flag) == ((val)&(flag)))
+#define	AddFlag(val, flag) ((val) |= (flag))
+#define	RemFlag(val, flag) ((val) &= (~(flag)))
+#define	SetFlag(val, flag, enable) if ( enable ){(val)|=(flag);} else {(val)&=~(flag);}
 
 /*!
  *	@brief	This aligns the address to the alignment that comes BEFORE the address
@@ -20,7 +20,7 @@
  *			where offset must include all bytes that are needed in addition to the requested amount of bytes.
  *			E.g. (offset = sizeof(intptr_t) + alignment - 1)
  */
-inline intptr_t AEAlignAddress(intptr_t address, size_t alignment)
+inline intptr_t AlignAddress(intptr_t address, size_t alignment)
 {
 	return address & ~(alignment - 1);
 }
