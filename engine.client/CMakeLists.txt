@@ -11,23 +11,23 @@ add_executable(${TARGET_NAME} "../res/appicon.ico" "../res/resources.rc")
 target_sources(
     ${TARGET_NAME}
     PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/client.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/appwindow.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/d3d11renderer.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/camera.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/material.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/meshrenderer.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/shadercb.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/stb_image.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Header/flycamera.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/client.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/appwindow.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11renderer.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/camera.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/material.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/meshrenderer.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/shadercb.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/stb_image.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/flycamera.h"
     PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/main.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/client.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/appwindow.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/d3d11renderer.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/camera.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/meshrenderer.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/flycamera.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/client.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/appwindow.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/d3d11renderer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/camera.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/meshrenderer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/flycamera.cpp"
 )
 
 # set additional target properties
@@ -42,7 +42,6 @@ target_link_libraries(${TARGET_NAME}
 target_include_directories(
     ${TARGET_NAME}
     PRIVATE
-    "${CMAKE_SOURCE_DIR}/engine.shared/Header"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Header"
-	"${CMAKE_CURRENT_SOURCE_DIR}/includes"
+    "${CMAKE_SOURCE_DIR}/engine.shared/inc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/inc"
 )
