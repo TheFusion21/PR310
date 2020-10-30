@@ -1,6 +1,6 @@
 # define project
-project(engine.driver.d3d11 C CXX)
-SET(TARGET_NAME engine.driver.d3d11)
+project(driver.graphics C CXX)
+SET(TARGET_NAME driver.graphics)
 
 # configure executable, properties and linkage
 add_library(${TARGET_NAME} STATIC)
@@ -9,8 +9,11 @@ add_library(${TARGET_NAME} STATIC)
 target_sources(
     ${TARGET_NAME}
     PUBLIC
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/rendererinterface.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/d3d11renderer.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/graphicsinterface.h"
     PRIVATE
-		"${CMAKE_CURRENT_SOURCE_DIR}/src/0.cpp"
+		"${CMAKE_CURRENT_SOURCE_DIR}/src/d3d11/d3d11renderer.cpp"
 )
 
 # additional includes for target

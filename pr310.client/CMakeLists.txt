@@ -30,7 +30,7 @@ set_target_properties(${TARGET_NAME} PROPERTIES LINKER_LANGUAGE CXX DEBUG_POSTFI
 # link libraries against the target
 target_link_libraries(${TARGET_NAME}
     shared
-    engine.driver.d3d11
+    driver.graphics
     engine.core
     pr310.game
     D3D11
@@ -40,7 +40,7 @@ target_link_libraries(${TARGET_NAME}
 # additional includes for target
 target_include_directories(${TARGET_NAME} PRIVATE
 	"${CMAKE_SOURCE_DIR}/shared/inc"
-	"${CMAKE_SOURCE_DIR}/driver.d3d11/inc"
+	"${CMAKE_SOURCE_DIR}/driver.graphics/inc"
 	"${CMAKE_SOURCE_DIR}/engine.core/inc"
 	"${CMAKE_SOURCE_DIR}/pr310.game/inc"
 	"${CMAKE_CURRENT_SOURCE_DIR}/inc"

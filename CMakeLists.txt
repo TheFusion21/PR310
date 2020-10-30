@@ -14,7 +14,7 @@ option(GENERATE_DOCS "Do you want to generate the documentation?" FALSE)
 # ****************************************
 
 add_subdirectory(shared)
-add_subdirectory(driver.d3d11)
+add_subdirectory(driver.graphics)
 add_subdirectory(engine.core)
 add_subdirectory(pr310.game)
 add_subdirectory(pr310.client)
