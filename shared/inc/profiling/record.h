@@ -22,9 +22,9 @@ public:
 };
 
 #ifdef ENGINE_COMPILE_DEBUG
-#	define AE_FUNCTION_PROFILING()			ScopedRecord RecordL##__Line__(__FUNCSIG__, __FILE__, __LINE__);
-#	define AE_SCOPED_PROFILING(ScopeName)	ScopedRecord RecordL##__Line__(ScopeName, __FILE__, __LINE__);
+#	define FUNCTION_PROFILING()			ScopedRecord RecordL##__Line__(__FUNCSIG__, __FILE__, __LINE__);
+#	define SCOPED_PROFILING(ScopeName)	ScopedRecord RecordL##__Line__(ScopeName, __FILE__, __LINE__);
 #else
-#	define AE_FUNCTION_PROFILING();
-#	define AE_SCOPED_PROFILING(ScopeName);
+#	define FUNCTION_PROFILING();
+#	define SCOPED_PROFILING(ScopeName);
 #endif

@@ -1,6 +1,5 @@
-
 // EXTERNAL INCLUDES
-#include <Windows.h>
+
 // INTENRAL INCLUDES
 #include "appinfo.h"
 #include "application.h"
@@ -9,19 +8,19 @@
 
 void Application::Initialize(u32 ArgCount, const ansistring* ArgList)
 {
-	AE_FUNCTION_PROFILING();
-
+	FUNCTION_PROFILING()
+	
 	this->GameEngine.Initialize(APPLICATION_NAME, ArgCount, ArgList);
 }
 void Application::Execute()
 {
-	AE_FUNCTION_PROFILING();
+	FUNCTION_PROFILING();
 	// TODO: Do something .. xD
 }
 void Application::Shutdown()
 {
 	{
-		AE_FUNCTION_PROFILING();
+		FUNCTION_PROFILING();
 
 		this->GameEngine.Shutdown();
 	}

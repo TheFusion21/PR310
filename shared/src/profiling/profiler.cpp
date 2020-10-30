@@ -51,7 +51,7 @@ PerformanceProfiler::~PerformanceProfiler()
 bool PerformanceProfiler::AddRecord(const ScopedRecord& Record)
 {
 	float ms = ((Record.EndTime - Record.StartTime) * 1000.0f) / Record.Frequency;
-	AELog("Scope %s took %.1f ms.", Record.ScopeName, roundf(ms));
+	DebugLog("Scope %s took %.1f ms.", Record.ScopeName, roundf(ms));
 
 	ProfilerRecord Entry = {};
 

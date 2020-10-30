@@ -7,19 +7,19 @@
 #include "basetypes.h"
 
 #if defined(ENGINE_COMPILE_DEBUG)
-#   define AELog(str, ...)                      \
+#   define DebugLog(str, ...)                      \
 {                                               \
     ansichar string[256];                       \
     snprintf(string, 256, str, __VA_ARGS__);    \
     printf("[INFO]: %s\n", string);             \
 }
-#define AEWarn(str, ...)                                                \
+#define DebugWarn(str, ...)                                                \
 {                                                                       \
     ansichar string[256];                                               \
     snprintf(string, 256, str, __VA_ARGS__);                            \
     printf("[WARNING]: %s (%s #%i)\n", string, __FILE__, __LINE__);     \
 }
-#define AEErr(str, ...)                                                 \
+#define DebugErr(str, ...)                                                 \
 {                                                                       \
     ansichar string[256];                                               \
     snprintf(string, 256, str, ##__VA_ARGS__);                          \
@@ -27,13 +27,13 @@
 	exit(EXIT_FAILURE);													\
 }
 #else
-#   define AELog(str, ...) NULL
-#   define AEWarn(str, ...) NULL
-#   define AEErr(str, ...) NULL
+#   define DebugLog(str, ...) NULL
+#   define DebugWarn(str, ...) NULL
+#   define DebugErr(str, ...) NULL
 #endif
 
 #if defined(ENGINE_COMPILE_DEBUG)
-#define AEDebugAssert(expr) assert(expr)
+#define DebugAssert(expr) assert(expr)
 #else
-#define AEDebugAssert(expr)
+#define DebugAssert(expr)
 #endif

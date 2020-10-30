@@ -11,19 +11,19 @@ AE_DEFINE_SINGLETON(PlatformHardware)
 
 void PlatformHardware::OutputInfo()
 {
-	AE_FUNCTION_PROFILING();
+	FUNCTION_PROFILING();
 
 	PlatformInfo PtInfo = { };
 	PlatformHardware::GetPlatformInfo(PtInfo);
 
-	AELog("----------- Hardware Information -----------");
-	AELog("Number of processors: %i", PtInfo.NumProcessors);
-	AELog("Max Physical Memory: %" PRIu64 " GB", static_cast<u64>(static_cast<double>(PtInfo.PhysicalMemory) * 1.073741824e-9));
-	AELog("Max Virtual Memory: %" PRIu64 " GB", static_cast<u64>(static_cast<double>(PtInfo.VirtualMemory) * 1.073741824e-9));
-	AELog("SSE Available: %s", PtInfo.SSEAvailable ? "Yes" : "No");
-	AELog("SSE2 Available: %s", PtInfo.SSE2Available ? "Yes" : "No");
-	AELog("SSE4 Available: %s", PtInfo.SSE4Available ? "Yes" : "No");
-	AELog("--------------------------------------------");
+	DebugLog("----------- Hardware Information -----------");
+	DebugLog("Number of processors: %i", PtInfo.NumProcessors);
+	DebugLog("Max Physical Memory: %" PRIu64 " GB", static_cast<u64>(static_cast<double>(PtInfo.PhysicalMemory) * 1.073741824e-9));
+	DebugLog("Max Virtual Memory: %" PRIu64 " GB", static_cast<u64>(static_cast<double>(PtInfo.VirtualMemory) * 1.073741824e-9));
+	DebugLog("SSE Available: %s", PtInfo.SSEAvailable ? "Yes" : "No");
+	DebugLog("SSE2 Available: %s", PtInfo.SSE2Available ? "Yes" : "No");
+	DebugLog("SSE4 Available: %s", PtInfo.SSE4Available ? "Yes" : "No");
+	DebugLog("--------------------------------------------");
 }
 void PlatformHardware::GetPlatformInfo(PlatformInfo& OutInfo)
 {

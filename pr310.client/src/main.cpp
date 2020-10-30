@@ -1,7 +1,6 @@
-
 // EXTERNAL INCLUDES
 #include <cstdlib>
-#include <cstdio>
+
 // INTERNAL INCLUDES
 #include "application.h"
 #include "basetypes.h"
