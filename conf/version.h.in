@@ -1,0 +1,9 @@
+#pragma once
+
+#define ENGINE_NAME "PR310 Engine"
+
+#define ENGINE_GIT_TAG    "@GIT_TAG@"
+#define ENGINE_GIT_COMMIT "@GIT_COMMIT@"
+#define ENGINE_GIT_DATE   "@GIT_DATE@"
+
+#define COMPILE_DATE @COMPILE_DATE@
