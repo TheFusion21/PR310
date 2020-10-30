@@ -9,35 +9,41 @@ add_library(${TARGET_NAME} STATIC)
 target_sources(
     ${TARGET_NAME}
     PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/appinfo.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/types.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/vec3.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/vec2.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/mat4x4.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/mathutils.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/quaternion.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/util.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/color.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/singleton.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/transform.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/time.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/vertex.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/gameobject.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/component.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/mesh.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/input.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/appinfo.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/types.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/vec3.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/vec2.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/mat4x4.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/mathutils.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/quaternion.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/util.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/color.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/singleton.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/transform.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/time.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/vertex.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/gameobject.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/component.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/mesh.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/input.h"
     PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/vec3.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/vec2.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/mat4x4.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/quaternion.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/time.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/gameobject.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/component.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/mesh.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/transform.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/input.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/vec3.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/vec2.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/mat4x4.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/quaternion.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/time.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/gameobject.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/component.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/mesh.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/transform.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/input.cpp"
 )
 
 # set additional target properties
 set_target_properties(${TARGET_NAME} PROPERTIES LINKER_LANGUAGE CXX DEBUG_POSTFIX ".debug")
+
+target_include_directories(
+    ${TARGET_NAME}
+    PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/Header"
+)

@@ -11,23 +11,23 @@ add_executable(${TARGET_NAME} "../res/appicon.ico" "../res/resources.rc")
 target_sources(
     ${TARGET_NAME}
     PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/client.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/appwindow.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/d3d11renderer.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/camera.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/material.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/meshrenderer.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/shadercb.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/stb_image.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/flycamera.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/client.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/appwindow.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/d3d11renderer.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/camera.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/material.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/meshrenderer.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/shadercb.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/stb_image.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Header/flycamera.h"
     PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/client.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/appwindow.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/d3d11renderer.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/camera.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/meshrenderer.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/flycamera.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/main.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/client.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/appwindow.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/d3d11renderer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/camera.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/meshrenderer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/CPP/flycamera.cpp"
 )
 
 # set additional target properties
@@ -39,7 +39,10 @@ target_link_libraries(${TARGET_NAME}
     D3D11 DXGI D3DCompiler)
 
 # additional includes for target
-target_include_directories(${TARGET_NAME} PRIVATE
-	"${CMAKE_SOURCE_DIR}/engine.client"
-	"${CMAKE_SOURCE_DIR}/engine.shared"
+target_include_directories(
+    ${TARGET_NAME}
+    PRIVATE
+    "${CMAKE_SOURCE_DIR}/engine.shared/Header"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Header"
+	"${CMAKE_CURRENT_SOURCE_DIR}/includes"
 )
