@@ -10,6 +10,18 @@ target_sources(${TARGET_NAME}
 	PUBLIC
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/engine.h"
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/platform.h"
+
+
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/component/componentarray.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/component/componentpool.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/component/transform.h"
+
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/entity/entity.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/entity/entitypool.h"
+
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/system/system.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/system/systempool.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/system/testsystem.h"
 	PRIVATE
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/engine.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp"

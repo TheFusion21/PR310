@@ -10,10 +10,10 @@ target_sources(
     ${TARGET_NAME}
     PUBLIC
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/rendererinterface.h"
-		"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/d3d11renderer.h"
-		"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/graphicsinterface.h"
+		#"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/d3d11renderer.h"
+		#"${CMAKE_CURRENT_SOURCE_DIR}/inc/d3d11/graphicsinterface.h"
     PRIVATE
-		"${CMAKE_CURRENT_SOURCE_DIR}/src/d3d11/d3d11renderer.cpp"
+		#"${CMAKE_CURRENT_SOURCE_DIR}/src/d3d11/d3d11renderer.cpp"
 )
 
 # additional includes for target
