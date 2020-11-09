@@ -2,6 +2,9 @@
 
 // EXTERNAL INCLUDES
 // INTENRAL INCLUDES
+#include "ecs/component/componentpool.h"
+#include "ecs/entity/entitypool.h"
+#include "ecs/system/systempool.h"
 #include "engine.h"
 
 class Application
@@ -15,5 +18,9 @@ public:
 private:
 
 	Engine GameEngine;
+
+	ComponentPool componentPool;
+	EntityPool entityPool = EntityPool(1024);
+	SystemPool systemPool;
 
 };
