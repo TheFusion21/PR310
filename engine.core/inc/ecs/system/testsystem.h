@@ -1,20 +1,33 @@
 #pragma once
 
 #include "system.h"
-#include "../component/componentpool.h"
+#include "../component/componentcontext.h"
 #include "../component/transform.h"
 
 #define NameToText(x) #x
-class TestSystem : public System
+
+class TestSystem
 {
 public:
-	void Update(ComponentPool& coord)
+
+	static void Initialize(void)
+	{
+
+	}
+	static void Execute(std::vector<Entity>& entities, float deltaTime)
 	{
 		for (auto const& entity : entities)
 		{
-			auto& transform = coord.GetComponent<Transform>(entity, NameToText(Transform));
+			auto& CompCont = ComponentContext::GetInstance();
+			auto* transform = CompCont.GetComponent<Transform>(entity);
+			if (!transform) return;
 
-			transform.position += Vec3::UnitZ;
+			transform->position += Vec3::UnitZ;
 		}
 	}
+	static void TearDown(void)
+	{
+
+	}
+
 };

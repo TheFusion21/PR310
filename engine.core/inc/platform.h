@@ -6,7 +6,7 @@
 
 class PlatformHardware
 {
-	AE_DECLARE_SINGLETON(PlatformHardware)
+	DECLARE_SINGLETON(PlatformHardware)
 
 public:
 

@@ -4,11 +4,13 @@
 #include "math/vec3.h"
 #include "math/quaternion.h"
 
-
 struct Transform
 {
 	Vec3 position;
 	Quaternion rotation;
 	Vec3 scale;
 
+	static size_t ID;
 };
+
+size_t Transform::ID = 0;

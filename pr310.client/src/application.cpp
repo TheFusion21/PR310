@@ -20,28 +20,25 @@ void Application::Execute()
 {
 	FUNCTION_PROFILING();
 
-	Entity testEntity;
-	TestSystem* testSystem = nullptr;
-
-	testSystem = systemPool.RegisterSystem<TestSystem>(NameToText(TestSystem));
-
-	componentPool.RegisterComponent<Transform>(NameToText(Transform));
+	auto& CompCont = ComponentContext::GetInstance();
+	CompCont.RegisterComponent<Transform>();
 
 	Signature sysSig;
-	sysSig.set(componentPool.GetComponentType(NameToText(Transform)));
-	systemPool.SetSignature(NameToText(TestSystem), sysSig);
+	sysSig.set(Transform::ID, true);
+	systemPool.RegisterExecuteSystem<TestSystem>(sysSig);
+	
+	auto& EntCont = EntityContext::GetInstance();
+	auto Ent = EntCont.CreateEntity();
 
-	testEntity = entityPool.CreateEntity();
-	componentPool.AddComponent(testEntity, NameToText(Transform), Transform());
+	CompCont.AddComponent<Transform>(Ent);
 
-	Signature testSig = entityPool.GetSignature(testEntity);
-	testSig.set(componentPool.GetComponentType(NameToText(Transform)));
-	entityPool.SetSignature(testEntity, testSig);
-
-	systemPool.EntitySignatureChanged(testEntity, entityPool.GetSignature(testEntity));
-
-	for(int i = 0;i<100000;i++)
-		testSystem->Update(componentPool);
+	systemPool.Initialize();
+	for (int i = 0; i < 100000; i++)
+	{
+		SCOPED_PROFILING("Loop");
+		systemPool.Execute();
+	}
+	systemPool.TearDown();
 }
 
 void Application::Shutdown()

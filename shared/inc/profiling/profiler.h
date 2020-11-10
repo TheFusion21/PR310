@@ -19,7 +19,7 @@ struct ProfilerRecord
 
 class PerformanceProfiler
 {
-	AE_DECLARE_SINGLETON(PerformanceProfiler);
+	DECLARE_SINGLETON(PerformanceProfiler);
 
 public:
 

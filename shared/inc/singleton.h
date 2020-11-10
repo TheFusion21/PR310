@@ -4,7 +4,7 @@
 // INTERNAL INCLUDES
 #include "memory/memutils.h"
 
-#define AE_DECLARE_SINGLETON(CLASSDEF)				\
+#define DECLARE_SINGLETON(CLASSDEF)					\
 public:												\
 	static CLASSDEF& GetInstance(void)				\
 	{												\
@@ -26,5 +26,5 @@ private:											\
 	CLASSDEF& operator=(CLASSDEF&&) = delete;		\
 	static CLASSDEF* InstancePtr;
 
-#define AE_DEFINE_SINGLETON(CLASSDEF)				\
+#define DEFINE_SINGLETON(CLASSDEF)					\
 	CLASSDEF* CLASSDEF::InstancePtr = nullptr;

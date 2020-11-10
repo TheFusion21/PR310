@@ -7,7 +7,7 @@
 #include "platform.h"
 #include "profiling/record.h"
 
-AE_DEFINE_SINGLETON(PlatformHardware)
+DEFINE_SINGLETON(PlatformHardware)
 
 void PlatformHardware::OutputInfo()
 {

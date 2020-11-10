@@ -2,11 +2,12 @@
 
 #include "../entity/entity.h"
 #include <set>
-class ComponentPool;
+
+class ComponentContext;
 class System
 {
 public:
-	virtual void Update(ComponentPool& coord) = 0;
+	virtual void Update(ComponentContext& coord) = 0;
 
 	std::set<Entity> entities;
 };

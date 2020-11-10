@@ -7,7 +7,7 @@
 #include "profiling/profiler.h"
 #include "profiling/record.h"
 
-AE_DEFINE_SINGLETON(PerformanceProfiler)
+DEFINE_SINGLETON(PerformanceProfiler)
 
 PerformanceProfiler::~PerformanceProfiler()
 {
