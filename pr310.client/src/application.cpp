@@ -3,6 +3,7 @@
 // INTENRAL INCLUDES
 #include "appinfo.h"
 #include "application.h"
+#include "scenenode.h"
 #include "profiling/profiler.h"
 #include "profiling/record.h"
 
@@ -19,26 +20,43 @@ void Application::Initialize(u32 ArgCount, const ansistring* ArgList)
 void Application::Execute()
 {
 	FUNCTION_PROFILING();
-
-	auto& CompCont = ComponentContext::GetInstance();
-	CompCont.RegisterComponent<Transform>();
-
-	Signature sysSig;
-	sysSig.set(Transform::ID, true);
-	systemPool.RegisterExecuteSystem<TestSystem>(sysSig);
 	
-	auto& EntCont = EntityContext::GetInstance();
-	auto Ent = EntCont.CreateEntity();
+	//auto& CompCont = ComponentContext::GetInstance();
+	//CompCont.RegisterComponent<Transform>();
 
-	CompCont.AddComponent<Transform>(Ent);
+	//Signature sysSig;
+	//sysSig.set(Transform::ID, true);
+	//systemPool.RegisterExecuteSystem<TestSystem>(sysSig);
+	//
+	//auto& EntCont = EntityContext::GetInstance();
+	//auto Ent = EntCont.CreateEntity();
 
-	systemPool.Initialize();
-	for (int i = 0; i < 100000; i++)
-	{
-		SCOPED_PROFILING("Loop");
-		systemPool.Execute();
-	}
-	systemPool.TearDown();
+	//CompCont.AddComponent<Transform>(Ent);
+
+	//systemPool.Initialize();
+	//for (int i = 0; i < 100000; i++)
+	//{
+	//	SCOPED_PROFILING("Loop");
+	//	systemPool.Execute();
+	//}
+	//systemPool.TearDown();
+
+	auto root = SceneNode("root");
+	root.SetTransform(Transform());
+	
+	auto child = SceneNode("child");
+	auto childTransform = Transform();
+	childTransform.position = Vec3(5, -3, 0);
+	child.SetTransform(childTransform);
+
+	auto rootTransform = Transform();
+	rootTransform.position = Vec3(-1, -1, -1);
+	root.SetTransform(rootTransform);
+	
+	root.AddChild(&child);
+	root.Update();
+
+	return;
 }
 
 void Application::Shutdown()

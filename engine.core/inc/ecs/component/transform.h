@@ -12,5 +12,3 @@ struct Transform
 
 	static size_t ID;
 };
-
-size_t Transform::ID = 0;

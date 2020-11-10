@@ -19,9 +19,13 @@ target_sources(
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/inc/appinfo.h"
         "${CMAKE_CURRENT_SOURCE_DIR}/inc/application.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/node.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/inc/scenenode.h"
     PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/src/application.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/node.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/scenenode.cpp"
 )
 
 # set additional target properties

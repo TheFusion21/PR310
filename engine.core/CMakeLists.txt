@@ -24,6 +24,7 @@ target_sources(${TARGET_NAME}
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/system/testsystem.h"
 	PRIVATE
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/ecs/component/componentcontext.cpp"
+		"${CMAKE_CURRENT_SOURCE_DIR}/src/ecs/component/transform.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/ecs/entity/entitycontext.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/engine.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp"
