@@ -3,7 +3,7 @@
 SceneNode::SceneNode(const char* name)
 	: Node()
 	, name(name)
-	, transform()
+	, worldSpace()
 	, isDirty(true)
 {}
 
@@ -11,10 +11,12 @@ void SceneNode::Update()
 {
 	if (isDirty)
 	{
+		this->worldSpace.position += this->localSpace.position;
+		
 		for (auto& child : children)
 		{
 			auto* sceneChild = static_cast<SceneNode*>(child);
-			sceneChild->transform.position += this->transform.position;
+			sceneChild->worldSpace.position = this->localSpace.position;
 			sceneChild->isDirty = true;
 		}
 		
@@ -24,13 +26,53 @@ void SceneNode::Update()
 	Node::Update();
 }
 
+bool SceneNode::AddChild(Node* newChild)
+{
+	auto* childNode = static_cast<SceneNode*>(newChild);
+	
+	if (Node::AddChild(childNode))
+	{
+		childNode->localSpace.position -= GetWorldTransform().position;
+		childNode->SetDirty();
+		return true;
+	}
+	
+	return false;
+}
+
+bool SceneNode::RemoveChild(Node* child)
+{
+	auto* childNode = static_cast<SceneNode*>(child);
+
+	if (Node::RemoveChild(child))
+	{
+		static_cast<SceneNode*>(GetRoot())->Update();
+		childNode->localSpace = childNode->worldSpace;
+		childNode->SetDirty();
+		return true;
+	}
+	
+	return false;
+}
+
+void SceneNode::SetDirty()
+{
+	isDirty = true;
+	static_cast<SceneNode*>(GetRoot())->isDirty = true;
+}
+
 void SceneNode::SetTransform(const Transform& newTransform)
 {
-	transform = newTransform;
+	localSpace = newTransform;
 	isDirty = true;
 }
 
-const Transform& SceneNode::GetTransform() const
+const Transform& SceneNode::GetWorldTransform() const
 {
-	return transform;
+	return worldSpace;
+}
+
+const Transform& SceneNode::GetLocalTransform() const
+{
+	return localSpace;
 }

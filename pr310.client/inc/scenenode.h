@@ -9,11 +9,16 @@ public:
 	SceneNode(const char* _name);
 	void Update() override;
 	void SetTransform(const Transform& newTransform);
-	const Transform& GetTransform() const;
+	bool AddChild(Node* newChild) override;
+	bool RemoveChild(Node* child) override;
+	void SetDirty();
+	const Transform& GetLocalTransform() const;
+	const Transform& GetWorldTransform() const;
 	
 private:
 	const char* name;
-	Transform transform;
+	Transform worldSpace;
+	Transform localSpace;
 	bool isDirty;
 	
 };

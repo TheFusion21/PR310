@@ -32,9 +32,9 @@ bool Node::AddChild(Node* newChild)
 	return false;
 }
 
-void Node::RemoveChild(Node* child)
+bool Node::RemoveChild(Node* child)
 {
-	if (child == nullptr) return;
+	if (child == nullptr) return false;
 
 	const auto it = std::find(children.begin(), children.end(), child);
 	if (it != children.end())
@@ -42,7 +42,10 @@ void Node::RemoveChild(Node* child)
 		child->parent = nullptr;
 		children.at(std::distance(children.begin(), it)) = *(children.end()--);
 		children.pop_back();
+		
+		return true;
 	}
+	return false;
 }
 
 Node* Node::GetRoot()
