@@ -7,7 +7,6 @@
 #include "profiling/profiler.h"
 #include "profiling/record.h"
 
-
 #include "ecs/component/transform.h"
 #include "ecs/system/testsystem.h"
 void Application::Initialize(u32 ArgCount, const ansistring* ArgList)
@@ -60,7 +59,12 @@ void Application::Execute()
 	child.AddChild(&root);
 
 	root.Update();
-	
+
+	while (true)
+	{
+		GameEngine.Update();
+	}
+
 	return;
 }
 

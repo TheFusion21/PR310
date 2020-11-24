@@ -10,6 +10,7 @@ target_sources(${TARGET_NAME}
 	PUBLIC
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/engine.h"
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/platform.h"
+		"${CMAKE_CURRENT_SOURCE_DIR}/inc/renderwindow.h"
 
 
 		"${CMAKE_CURRENT_SOURCE_DIR}/inc/ecs/component/componentarray.h"
@@ -28,7 +29,8 @@ target_sources(${TARGET_NAME}
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/ecs/entity/entitycontext.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/engine.cpp"
 		"${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp"
-	)
+		"${CMAKE_CURRENT_SOURCE_DIR}/src/renderwindow.cpp"
+		"${CMAKE_CURRENT_SOURCE_DIR}/src/input/mouse.cpp")
 
 # additional includes for target
 set_target_properties(${TARGET_NAME} PROPERTIES LINKER_LANGUAGE CXX DEBUG_POSTFIX ".debug")

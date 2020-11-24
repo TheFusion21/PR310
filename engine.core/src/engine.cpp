@@ -4,6 +4,8 @@
 #include "engine.h"
 #include "platform.h"
 #include "profiling/record.h"
+#include "renderwindow.h"
+#include "input/mouse.h"
 
 void Engine::Initialize(ansistring AppName, u32 ArgCount, const ansistring* ArgList)
 {
@@ -21,7 +23,11 @@ void Engine::Initialize(ansistring AppName, u32 ArgCount, const ansistring* ArgL
 
 	// TODO: Log Hardware
 	PlatformHardware::OutputInfo();
+
+	renderWindow = new RenderWindow();
+	renderWindow->Initialize(AppName, 1366, 768);
 }
+
 void Engine::Shutdown()
 {
 	FUNCTION_PROFILING();
@@ -34,5 +40,12 @@ void Engine::Shutdown()
 		// Audio
 		// Other Subsystems
 	}
+}
+
+void Engine::Update()
+{
+	renderWindow->PumpMessages();
+
+	MouseInput::GetInstance().Update();
 }
 
