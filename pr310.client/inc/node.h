@@ -7,14 +7,14 @@ class Node
 public:
 	Node();
 	virtual void Update();
-	virtual void AddChild(Node* newChild);
-	virtual const std::vector<Node*>& GetChildren() const;
+	virtual bool AddChild(Node* newChild);
+	virtual void RemoveChild(Node* child);
+	[[nodiscard]] virtual const std::vector<Node*>& GetChildren() const;
 	virtual Node* GetRoot();
+	virtual Node* GetParent();
 
 protected:
-	std::vector<Node*> children;
-	
-private:
 	Node* parent;
+	std::vector<Node*> children;
 	
 };

@@ -2,12 +2,13 @@
 
 Node::Node() :
 	parent(nullptr)
-{}
+{
+}
 
 void Node::Update()
 {
 	for (auto* child : children)
-	{
+	{	
 		if (!child) continue;
 
 		child->Update();
@@ -19,16 +20,39 @@ const std::vector<Node*>& Node::GetChildren() const
 	return children;
 }
 
-void Node::AddChild(Node* newChild)
+bool Node::AddChild(Node* newChild)
 {
-	if (!newChild) return;
-	
-	children.push_back(newChild);
-	newChild->parent = this;
+	if (newChild != nullptr && newChild->parent == nullptr)
+	{
+		children.push_back(newChild);
+		newChild->parent = this;
+		return true;
+	}
+
+	return false;
+}
+
+void Node::RemoveChild(Node* child)
+{
+	if (child == nullptr) return;
+
+	const auto it = std::find(children.begin(), children.end(), child);
+	if (it != children.end())
+	{
+		child->parent = nullptr;
+		children.at(std::distance(children.begin(), it)) = *(children.end()--);
+		children.pop_back();
+	}
 }
 
 Node* Node::GetRoot()
 {
 	if (!parent) return this;
 	return parent->GetRoot();
+}
+
+Node* Node::GetParent()
+{
+	if (!parent) return nullptr;
+	return parent;
 }

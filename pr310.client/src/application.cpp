@@ -42,20 +42,25 @@ void Application::Execute()
 	//systemPool.TearDown();
 
 	auto root = SceneNode("root");
-	root.SetTransform(Transform());
+	auto rootTransform = Transform();
+	root.SetTransform(rootTransform);
 	
 	auto child = SceneNode("child");
 	auto childTransform = Transform();
 	childTransform.position = Vec3(5, -3, 0);
 	child.SetTransform(childTransform);
 
-	auto rootTransform = Transform();
 	rootTransform.position = Vec3(-1, -1, -1);
 	root.SetTransform(rootTransform);
 	
 	root.AddChild(&child);
 	root.Update();
 
+	child.GetParent()->RemoveChild(&child);
+	child.AddChild(&root);
+
+	root.Update();
+	
 	return;
 }
 

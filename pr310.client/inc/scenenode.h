@@ -2,7 +2,6 @@
 
 #include "node.h"
 #include "ecs/component/transform.h"
-#include <vector>
 
 class SceneNode : public Node
 {
